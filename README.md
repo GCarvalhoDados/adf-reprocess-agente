@@ -87,6 +87,16 @@ ADF_RUN_TIMEOUT_SECONDS=7200   # Timeout máximo por run (padrão: 2h)
 
 ## Uso
 
+### Interface Web (recomendado)
+
+```bash
+streamlit run app_streamlit.py
+```
+
+Abre em `http://localhost:8501`. Interface de chat com histórico, feedback de progresso e visualização dos tool calls.
+
+### Terminal (CLI)
+
 ```bash
 python agent.py
 ```
@@ -123,7 +133,9 @@ Você: sair
 
 ```
 adf-reprocess-agent/
-├── agent.py          # Loop conversacional (REPL)
+├── app_streamlit.py  # Interface web (Streamlit)
+├── agent_core.py     # Lógica de orquestração reutilizável
+├── agent.py          # Loop conversacional CLI (REPL)
 ├── adf_client.py     # Wrapper da ADF REST API
 ├── config.py         # Leitura de .env + autenticação Azure
 ├── requirements.txt  # Dependências Python
@@ -142,3 +154,4 @@ adf-reprocess-agent/
 | `msal` | Autenticação Service Principal Azure |
 | `requests` | Chamadas REST à API do ADF |
 | `python-dateutil` | Iteração sobre range de meses |
+| `streamlit` | Interface web |
